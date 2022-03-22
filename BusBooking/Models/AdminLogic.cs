@@ -7,11 +7,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BusTicketApplication.Models
 {
-	[Table("TblAdminLogic")]
+	[Table("TblAdminLogic")]			 
 
 	public class AdminLogic
 	{
-		[Key]
+		[Key]																		   // Admin account entity
 		public int AdminId { get; set; }
 		[Required(ErrorMessage = "User name required")]
 		[Display(Name = "User Name")]
@@ -25,8 +25,8 @@ namespace BusTicketApplication.Models
 		public string Password { get; set; }
 	}
 
-	[Table("TblUserAccount")]
-	public class UserAccount
+	[Table("TblUserAccount")]                            
+	public class UserAccount										   // User account entity
 	{
 		[Key]
 		public int UserId { get; set; }
@@ -52,7 +52,7 @@ namespace BusTicketApplication.Models
 		[MinLength(5, ErrorMessage = "Minimum size is 5 symbols"), MaxLength(20, ErrorMessage = "20 symbols allowed")]
 		public string Password { get; set; }
 
-		[Display(Name = "Password confirmation")]
+		[Display(Name = "Password confirmation")]							   // Password confirmation option
 		[DataType(DataType.Password)]
 		[Compare("Password", ErrorMessage = "Passwords don't match")]
 		[MinLength(5, ErrorMessage = "Minimum size is 5 symbols"), MaxLength(20, ErrorMessage = "20 symbols allowed")]
@@ -61,12 +61,12 @@ namespace BusTicketApplication.Models
 		public int Age { get; set; }
 
 		[Display(Name = "Document number(series and number)")]
-		[Required(ErrorMessage = "Document number required"), RegularExpression(@"^([A-Z]{2}[0-9]{7})?$")]
+		[Required(ErrorMessage = "Document number required"), RegularExpression(@"^([A-Z]{2}[0-9]{7})?$")]	   // RegEx for Belarussian passport  
 		[StringLength(9)]
 		public string DocNumber { get; set; }
 	}
 
-	public class BusInfo
+	public class BusInfo										  // Bus entity
 	{
 		[Key]
 		public int BusId { get; set; }
@@ -86,7 +86,7 @@ namespace BusTicketApplication.Models
 
 	[Table("TblVoyageBooking")]
 
-	public class VoyageBooking
+	public class VoyageBooking										 //  Voyage entity. Actually allows users to find a trip. 
 	{
 		[Key]
 		public int VoyageId { get; set; }
@@ -106,10 +106,6 @@ namespace BusTicketApplication.Models
 		public string Dtime { get; set; }
 		public int BusId { get; set; }
 		public virtual BusInfo BusInfo { get; set; }
-
-
-
-
 	}
 
 }

@@ -12,7 +12,7 @@ namespace BusTicketApplication.Models
 		{
 
 		}
-		public DbSet<AdminLogic> AdminLogins { get; set; }
+		public DbSet<AdminLogic> AdminLogins { get; set; }					   // Tables creation
 		public DbSet<UserAccount> UserLogins { get; set; }
 		public DbSet<BusInfo> BusInfo { get; set; }
 		public DbSet<VoyageBooking> VoyageBookings { get; set; }
